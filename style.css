@@ -1,0 +1,250 @@
+/* Kit Locker – styles
+   All the look of the app lives in this file. */
+
+/* ----- Colours and sizes ----- */
+:root {
+  --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --card-background: #ffffff;
+  --inner-background: #f7f7fb;
+  --text-color: #333333;
+  --muted-text: #777777;
+  --border-color: #e6e6f0;
+  --primary: #667eea;
+  --available: #2e9e5b;
+  --available-background: #e3f6eb;
+  --booked: #c0392b;
+  --booked-background: #fbe7e5;
+  --radius-large: 16px;
+  --radius-small: 10px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ----- Page ----- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 32px 16px;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-color);
+  background: var(--gradient);
+}
+
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* ----- Cards (rounded boxes) ----- */
+.card {
+  background: var(--card-background);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.inner-box {
+  background: var(--inner-background);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-small);
+  padding: 16px;
+}
+
+/* ----- Headings ----- */
+.header-card {
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 2.2rem;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted-text);
+}
+
+h2 {
+  margin: 0 0 16px;
+  font-size: 1.2rem;
+}
+
+/* ----- Name field ----- */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-small);
+  background: #ffffff;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.25);
+}
+
+/* ----- Status message ----- */
+.status-message {
+  margin: 0 0 20px;
+  padding: 12px 16px;
+  border-radius: var(--radius-small);
+  background: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  text-align: center;
+}
+
+.status-message:empty {
+  display: none;
+}
+
+/* ----- Buttons ----- */
+.button {
+  padding: 8px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.button-primary {
+  background: var(--gradient);
+  color: #ffffff;
+}
+
+.button-secondary {
+  background: #ffffff;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+/* ----- Category filter ----- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filter-button {
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: var(--inner-background);
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.filter-button.active {
+  background: var(--gradient);
+  border-color: transparent;
+  color: #ffffff;
+}
+
+/* ----- Kit table ----- */
+.table-wrapper {
+  overflow-x: auto;
+  padding: 8px;
+}
+
+.kit-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.kit-table th,
+.kit-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.kit-table tr:last-child td {
+  border-bottom: none;
+}
+
+.kit-table th {
+  font-size: 0.85rem;
+  color: var(--muted-text);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.badge-available {
+  background: var(--available-background);
+  color: var(--available);
+}
+
+.badge-booked {
+  background: var(--booked-background);
+  color: var(--booked);
+}
+
+/* ----- My bookings ----- */
+.bookings-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.booking-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-small);
+}
+
+.empty-message {
+  margin: 0;
+  color: var(--muted-text);
+}
+
+.empty-message:empty {
+  display: none;
+}
+
+/* ----- Footer ----- */
+.footer {
+  text-align: center;
+}
+
+.footer .button-secondary {
+  background: rgba(255, 255, 255, 0.9);
+}
